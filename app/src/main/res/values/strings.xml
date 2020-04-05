@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">CovidOut</string>
+    <string name="title_home">Beranda</string>
+    <string name="title_explore">Telusuri</string>
+    <string name="title_maps">Peta</string>
+    <string name="action_settings">Settings</string>
+    <string name="province_case">Data Kasus per Provinsi</string>
+    <string name="indonesia_case">Data Kasus di Indonesia</string>
+    <string name="recover">Sembuh</string>
+    <string name="death">Meninggal</string>
+    <string name="confirmed">Kasus Dikonfirmasi</string>
+    <string name="case_development">Perkembangan Kasus di Indonesia</string>
+    <string name="what_should_i_do">Apa Yang Harus Saya Lakukan?</string>
+    <string name="case_per_day">Jumlah Kasus per Hari</string>
+</resources>
