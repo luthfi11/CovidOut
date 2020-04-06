@@ -22,16 +22,19 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.anychart.APIlib
 import com.anychart.AnyChart
 import com.anychart.chart.common.dataentry.DataEntry
+import com.anychart.chart.common.dataentry.ValueDataEntry
 import com.anychart.data.Set
 import com.google.android.gms.common.api.ResolvableApiException
 import com.google.android.gms.location.*
 import com.google.android.gms.tasks.Task
 import com.luthfi.covidout.R
-import com.luthfi.covidout.data.model.CountryCase
+import com.luthfi.covidout.data.model.CaseDevelopment
 import com.luthfi.covidout.data.model.IndonesiaCase
 import com.luthfi.covidout.data.model.ProvinceResponse
-import com.luthfi.covidout.utils.CustomDataEntry
+import com.luthfi.covidout.ui.learn.LearnActivity
 import com.luthfi.covidout.utils.formatDate
+import com.luthfi.covidout.utils.formatNumber
+import com.luthfi.covidout.utils.formatUTCDate
 import com.luthfi.covidout.utils.roundNumber
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.util.*
@@ -64,30 +67,45 @@ class HomeFragment : Fragment() {
         viewModel.allProvinceCase?.observe(viewLifecycleOwner, provinceCaseObserver)
 
         btnRefreshLocation.setOnClickListener { getLastLocation() }
+        btnAction.setOnClickListener {
+            val intent = Intent(context, LearnActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private val indonesiaCaseObserver = Observer<IndonesiaCase> {
-        val positiveCase = it.positive.replace(",","").toInt()
-        val recoverRate = roundNumber((it.recover.toDouble() / positiveCase) * 100)
-        val deathRate = roundNumber((it.death.toDouble() / positiveCase) * 100)
+        val recoverRate = roundNumber((it.recovered.toDouble() / it.confirmed) * 100)
+        val activeRate = roundNumber((it.active.toDouble() / it.confirmed) * 100)
 
-        tvCaseTotalID.text = it.positive
-        tvRecoverID.text = it.recover
-        tvDeathID.text = it.death
+        tvCaseTotalID.text = formatNumber(it.confirmed)
+        tvActiveCaseID.text = formatNumber(it.active)
+
+        tvRecoverID.text = it.recovered.toString()
+        tvDeathID.text = it.deaths.toString()
+
+        tvActiveRateID.text = "$activeRate% Dari Total Kasus"
         tvRecoverRateID.text = "Persentase : $recoverRate%"
-        tvDeathRateID.text = "Persentase : $deathRate%"
+        tvDeathRateID.text = "Persentase : ${roundNumber(it.fatalityRate * 100)}%"
+        tvLastUpdate.text = "Update Terakhir : " + formatDate(it.date)
+
+        tvLabelConfirmed.append(" (+${it.confirmedDiff})")
+        tvLabelRecover.append(" (+${it.recoveredDiff})")
+        tvLabelDeath.append(" (+${it.deathsDiff})")
     }
 
-    private val indonesiaDevObserver = Observer<List<CountryCase>> { countryCase ->
-        tvLastUpdate.text = "Update Terakhir : "+formatDate(countryCase.last().date, "dd MMMM yyyy")
-
+    private val indonesiaDevObserver = Observer<List<CaseDevelopment>> { countryCase ->
+        var caseAverage = 0
         for (i in countryCase.indices) {
             val caseCount: Int = if (i != 0) countryCase[i].cases - countryCase[i-1].cases
             else countryCase[i].cases
 
-            caseDevList.add(CustomDataEntry(formatDate(countryCase[i].date, "d-MMM"), countryCase[i].cases))
-            casePerDayList.add(CustomDataEntry(formatDate(countryCase[i].date, "d-MMM"), caseCount))
+            caseDevList.add(ValueDataEntry(formatUTCDate(countryCase[i].date, "d-MMM"), countryCase[i].cases))
+            casePerDayList.add(ValueDataEntry(formatUTCDate(countryCase[i].date, "d-MMM"), caseCount))
+
+            caseAverage += caseCount
         }
+
+        tvAverageCaseID.text = (caseAverage.div(countryCase.size)).toString()
 
         setUpLineChart()
         setUpBarChart()

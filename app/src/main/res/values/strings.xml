@@ -12,4 +12,22 @@
     <string name="case_development">Perkembangan Kasus di Indonesia</string>
     <string name="what_should_i_do">Apa Yang Harus Saya Lakukan?</string>
     <string name="case_per_day">Jumlah Kasus per Hari</string>
+    <string name="active_case">Kasus Aktif</string>
+    <string name="average_case">Rata-Rata Kasus Baru Per Hari</string>
+    <string name="home_caption">Di wilayah kamu terdapat kasus Covid-19 sebagai berikut :</string>
+    <string name="cases">Kasus</string>
+    <string name="learn_caption">Ayo kita bersama-sama lawan virus Corona!</string>
+    <string name="know_more">Kenali lebih jauh apa itu virus Corona / Covid-19</string>
+    <string name="learn">Pelajari</string>
+    <string name="how_to">Bagaimana cara mencegah virus Corona dengan benar?</string>
+    <string name="how_feel">Apa yang harus dilakukan jika kita merasakan gejala virus Corona?</string>
+    <string name="learn_caption_body">Kenali, cegah, dan hindari virus Corona agar kamu dan keluarga kamu tidak tertular virus Corona.\n Untuk memulainya, anda bisa cari tahu terlebih dahulu di aplikasi ini.</string>
+    <string name="info">Info</string>
+    <string name="news">Berita</string>
+
+    <string name="news_feed">Berita Terbaru</string>
+    <string name="detail_info">Informasi Detail</string>
+    <string name="province_data">Data Provinsi</string>
+    <string name="advance_data">Data Lanjut</string>
+    <string name="city_data">Data Kabupaten dan Kota</string>
 </resources>

@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class Province(
+data class ProvinceCase(
     @SerializedName("FID")
     var id: Int,
     @SerializedName("Kode_Provi")
@@ -21,5 +21,5 @@ data class Province(
 ) : Parcelable
 
 data class ProvinceResponse(
-    var attributes: Province
+    var attributes: ProvinceCase
 )

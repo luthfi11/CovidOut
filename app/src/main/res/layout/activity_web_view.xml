@@ -4,20 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".ui.maps.MapsFragment">
+    tools:context=".ui.webview.WebViewActivity">
 
     <WebView
-        android:id="@+id/webMap"
+        android:id="@+id/webView"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
-    <com.google.android.material.appbar.MaterialToolbar
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/colorPrimary"
-        app:titleTextColor="@android:color/white"
-        app:title="google.co.id/covid19-map/"/>
 
     <ProgressBar
         android:id="@+id/progressBar"

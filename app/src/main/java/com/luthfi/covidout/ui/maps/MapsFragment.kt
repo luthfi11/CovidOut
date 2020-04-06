@@ -1,31 +1,36 @@
 package com.luthfi.covidout.ui.maps
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.WebView
+import android.webkit.WebViewClient
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.luthfi.covidout.R
+import com.luthfi.covidout.utils.MyBrowser
+import kotlinx.android.synthetic.main.fragment_maps.*
 
 class MapsFragment : Fragment() {
 
-    private lateinit var mapsViewModel: MapsViewModel
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        return inflater.inflate(R.layout.fragment_maps, container, false)
+    }
 
-    override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
-        mapsViewModel =
-                ViewModelProviders.of(this).get(MapsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_maps, container, false)
-        val textView: TextView = root.findViewById(R.id.text_notifications)
-        mapsViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setUpBrowser()
+    }
+
+    @SuppressLint("SetJavaScriptEnabled")
+    private fun setUpBrowser() {
+        webMap.settings.javaScriptEnabled = true
+        webMap.webViewClient = MyBrowser(progressBar)
+        webMap.loadUrl("https://www.google.co.id/covid19-map/")
     }
 }

@@ -6,30 +6,22 @@ import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class IndonesiaCase(
-    var name: String,
-    @SerializedName("positif")
-    var positive: String,
-    @SerializedName("sembuh")
-    var recover: String,
-    @SerializedName("meninggal")
-    var death: String
+    @SerializedName("last_update")
+    var date: String,
+    var confirmed: Int,
+    var recovered: Int,
+    var deaths: Int,
+    @SerializedName("confirmed_diff")
+    var confirmedDiff: Int,
+    @SerializedName("recovered_diff")
+    var recoveredDiff: Int,
+    @SerializedName("deaths_diff")
+    var deathsDiff: Int,
+    @SerializedName("fatality_rate")
+    var fatalityRate: Double,
+    var active: Int
 ): Parcelable
 
-
-/*
-"data": [
-{
-"date": "2020-04-02",
-"confirmed": 1790,
-"deaths": 170,
-"recovered": 112,
-"confirmed_diff": 113,
-"deaths_diff": 13,
-"recovered_diff": 9,
-"last_update": "2020-04-02 23:25:14",
-"active": 1508,
-"active_diff": 91,
-"fatality_rate": 0.095,
-}
-]
- */
+data class IndonesiaCaseResponse (
+    var data: List<IndonesiaCase>
+)

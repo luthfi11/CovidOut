@@ -1,5 +1,6 @@
 package com.luthfi.covidout.ui.home
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,10 +25,11 @@ class ProvinceCaseAdapter(private val responseList: List<ProvinceResponse>): Rec
 
     inner class ViewHolder(view: View): RecyclerView.ViewHolder(view){
 
+        @SuppressLint("SetTextI18n")
         fun bindView(provinceResponse: ProvinceResponse) {
             with(itemView) {
                 tvCaseTotal.text = "Total Kasus : "+provinceResponse.attributes.positiveCase.toString()
-                tvRecoverTotal.text = "Sembung : "+provinceResponse.attributes.recoverCase.toString()
+                tvRecoverTotal.text = "Sembuh : "+provinceResponse.attributes.recoverCase.toString()
                 tvDeathTotal.text = "Meninggal : "+provinceResponse.attributes.deathCase.toString()
                 tvProvince.text = provinceResponse.attributes.province
             }

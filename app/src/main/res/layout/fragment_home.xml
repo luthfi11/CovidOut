@@ -20,7 +20,7 @@
             android:gravity="center"
             android:text="@string/app_name"
             android:textColor="@android:color/white"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
     </com.google.android.material.appbar.MaterialToolbar>
@@ -46,31 +46,109 @@
                     android:id="@+id/tvLocation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/btnRefreshLocation"
                     android:drawableStart="@drawable/ic_place_black_24dp"
                     android:drawablePadding="4dp"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
-                    android:layout_toStartOf="@id/btnRefreshLocation"
-                    android:layout_alignParentStart="true"
                     tools:text="@tools:sample/cities" />
 
                 <ImageButton
                     android:id="@+id/btnRefreshLocation"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_refresh_black_24dp"
+                    android:layout_alignParentEnd="true"
                     android:background="@color/colorPrimary"
-                    android:layout_alignParentEnd="true"/>
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/ic_refresh_black_24dp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvHomeCaption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvLocation"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="16dp"
+                    android:text="@string/home_caption"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvCaseProvince"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvHomeCaption"
+                    android:layout_centerHorizontal="true"
+                    android:textColor="@android:color/white"
+                    android:textAlignment="center"
+                    android:textSize="34sp"
+                    tools:text="1980" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvRecoverProvince"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvHomeCaption"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginTop="10dp"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="30sp"
+                    tools:text="190" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvDeathProvince"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvHomeCaption"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="10dp"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="30sp"
+                    tools:text="180" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvCaseProvince"
+                    android:textColor="@android:color/white"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="16sp"
+                    android:text="@string/cases"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvRecoverProvince"
+                    android:textColor="@android:color/white"
+                    android:textSize="15sp"
+                    android:layout_alignParentStart="true"
+                    android:textAlignment="center"
+                    android:text="@string/recover"/>
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvDeathProvince"
+                    android:textColor="@android:color/white"
+                    android:layout_alignParentEnd="true"
+                    android:textAlignment="center"
+                    android:textSize="15sp"
+                    android:text="@string/death"/>
 
                 <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnAction"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
                     android:layout_marginBottom="40dp"
                     android:letterSpacing="0"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
                     android:text="@string/what_should_i_do"
                     android:textAllCaps="false"
                     android:textColor="@color/colorPrimaryDark"
@@ -88,7 +166,7 @@
                 android:orientation="vertical"
                 android:padding="16dp">
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="8dp"
@@ -111,7 +189,7 @@
                         android:gravity="center"
                         android:orientation="vertical">
 
-                        <TextView
+                        <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/tvCaseTotalID"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -119,13 +197,14 @@
                             android:textSize="30sp"
                             tools:text="1980" />
 
-                        <TextView
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tvLabelConfirmed"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/confirmed"
                             android:textSize="16sp" />
 
-                        <TextView
+                        <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/tvLastUpdate"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -159,7 +238,7 @@
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <TextView
+                            <com.google.android.material.textview.MaterialTextView
                                 android:id="@+id/tvRecoverID"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -167,13 +246,14 @@
                                 android:textSize="30sp"
                                 tools:text="190" />
 
-                            <TextView
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tvLabelRecover"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/recover"
                                 android:textSize="16sp" />
 
-                            <TextView
+                            <com.google.android.material.textview.MaterialTextView
                                 android:id="@+id/tvRecoverRateID"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -201,7 +281,7 @@
                             android:gravity="center"
                             android:orientation="vertical">
 
-                            <TextView
+                            <com.google.android.material.textview.MaterialTextView
                                 android:id="@+id/tvDeathID"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -209,18 +289,106 @@
                                 android:textSize="30sp"
                                 tools:text="210" />
 
-                            <TextView
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tvLabelDeath"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/death"
                                 android:textSize="16sp" />
 
-                            <TextView
+                            <com.google.android.material.textview.MaterialTextView
                                 android:id="@+id/tvDeathRateID"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:textAlignment="center"
                                 tools:text="8%" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dip"
+                        android:layout_height="100dp"
+                        android:layout_marginEnd="4dp"
+                        android:layout_weight="0.48"
+                        app:cardBackgroundColor="@android:color/white"
+                        app:cardCornerRadius="6dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/colorSemiMuted"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="6dp">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tvActiveCaseID"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@android:color/black"
+                                android:textSize="30sp"
+                                tools:text="190" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/active_case"
+                                android:textSize="16sp" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tvActiveRateID"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textAlignment="center"
+                                tools:text="8%" />
+
+                        </LinearLayout>
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="0dip"
+                        android:layout_height="100dp"
+                        android:layout_marginStart="4dp"
+                        android:layout_weight="0.48"
+                        app:cardBackgroundColor="@android:color/white"
+                        app:cardCornerRadius="6dp"
+                        app:cardElevation="0dp"
+                        app:strokeColor="@color/colorSemiMuted"
+                        app:strokeWidth="1dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="6dp">
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/tvAverageCaseID"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@android:color/black"
+                                android:textSize="30sp"
+                                tools:text="210" />
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/average_case"
+                                android:textAlignment="center" />
 
                         </LinearLayout>
 
@@ -234,7 +402,7 @@
                     android:layout_marginTop="16dp"
                     android:background="@color/colorSemiMuted" />
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -254,7 +422,7 @@
                     android:layout_marginTop="16dp"
                     android:background="@color/colorSemiMuted" />
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"
@@ -274,7 +442,7 @@
                     android:layout_marginTop="16dp"
                     android:background="@color/colorSemiMuted" />
 
-                <TextView
+                <com.google.android.material.textview.MaterialTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="16dp"

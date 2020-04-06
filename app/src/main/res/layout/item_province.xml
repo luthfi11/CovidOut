@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="85dp"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="0dp"
+    app:strokeColor="@color/colorSemiMuted"
+    app:strokeWidth="1dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imgProvince"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop"
+            tools:src="@tools:sample/backgrounds/scenic" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvProvince"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/imgProvince"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="16dp"
+            android:textColor="@android:color/black"
+            android:textSize="18sp"
+            tools:text="Jawa Barat" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvProvinceUrl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvProvince"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="10dp"
+            android:textColor="@color/colorPrimary"
+            android:layout_toEndOf="@id/imgProvince"
+            android:layout_marginTop="2dp"
+            android:ellipsize="end"
+            android:maxLines="1"
+            tools:text="http://pikobar.jabarprov.go.id/" />
+
+    </RelativeLayout>
+</com.google.android.material.card.MaterialCardView>

@@ -23,4 +23,16 @@
         android:label="@string/title_maps"
         tools:layout="@layout/fragment_maps" />
 
+    <fragment
+        android:id="@+id/navigation_news"
+        android:name="com.luthfi.covidout.ui.news.NewsFragment"
+        android:label="@string/news"
+        tools:layout="@layout/fragment_news" />
+
+    <fragment
+        android:id="@+id/navigation_info"
+        android:name="com.luthfi.covidout.ui.info.InfoFragment"
+        android:label="@string/info"
+        tools:layout="@layout/fragment_info" />
+
 </navigation>

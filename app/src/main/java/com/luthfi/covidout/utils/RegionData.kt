@@ -1,0 +1,62 @@
+package com.luthfi.covidout.utils
+
+import com.luthfi.covidout.data.model.Region
+
+val provinceData = listOf(
+    Region("Aceh","https://covid19.acehprov.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Coat_of_arms_of_Aceh.svg/330px-Coat_of_arms_of_Aceh.svg.png"),
+    Region("Bali","https://www.diskes.baliprov.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Coat_of_arms_of_Bali.svg/330px-Coat_of_arms_of_Bali.svg.png"),
+    Region("Banten","https://infocorona.bantenprov.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Coat_of_arms_of_Banten.png/330px-Coat_of_arms_of_Banten.png"),
+    Region("Daerah Istimewa Yogyakarta","https://corona.jogjaprov.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Coat_of_arms_of_Yogyakarta.svg/270px-Coat_of_arms_of_Yogyakarta.svg.png"),
+    Region("DKI Jakarta","https://corona.jakarta.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Coat_of_arms_of_Jakarta.svg/330px-Coat_of_arms_of_Jakarta.svg.png"),
+    Region("Jambi","http://corona.jambiprov.go.id/","https://upload.wikimedia.org/wikipedia/commons/5/5b/Jambi_symbol.jpg"),
+    Region("Jawa Barat","https://pikobar.jabarprov.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/0/07/West_Java_coa.png/330px-West_Java_coa.png"),
+    Region("Jawa Tengah","https://corona.jatengprov.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Coat_of_arms_of_Central_Java.svg/330px-Coat_of_arms_of_Central_Java.svg.png"),
+    Region("Jawa Timur","http://infocovid19.jatimprov.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Coat_of_arms_of_East_Java.svg/330px-Coat_of_arms_of_East_Java.svg.png"),
+    Region("Kalimantan Barat","https://dinkes.kalbarprov.go.id/covid-19/","https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Coat_of_arms_of_West_Kalimantan.svg/270px-Coat_of_arms_of_West_Kalimantan.svg.png"),
+    Region("Kalimantan Selatan","http://corona.kalselprov.go.id/","https://upload.wikimedia.org/wikipedia/commons/7/71/Coat_of_arms_of_South_Kalimantan.gif"),
+    Region("Kalimantan Timur","https://covid19.kaltimprov.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Coat_of_arms_of_East_Kalimantan.svg/270px-Coat_of_arms_of_East_Kalimantan.svg.png"),
+    Region("Lampung","http://geoportal.lampungprov.go.id/corona","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Coat_of_arms_of_Lampung.svg/270px-Coat_of_arms_of_Lampung.svg.png"),
+    Region("Maluku","https://corona.malukuprov.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Coat_of_arms_of_Maluku.svg/270px-Coat_of_arms_of_Maluku.svg.png"),
+    Region("Nusa Tenggara Barat","https://corona.ntbprov.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Coat_of_arms_of_West_Nusa_Tenggara.svg/270px-Coat_of_arms_of_West_Nusa_Tenggara.svg.png"),
+    Region("Riau","https://corona.riau.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Coat_of_arms_of_Riau.svg/270px-Coat_of_arms_of_Riau.svg.png"),
+    Region("Kepulauan Riau","https://corona.kepriprov.go.id/","https://upload.wikimedia.org/wikipedia/commons/e/ee/Coat_of_arms_of_Riau_Islands.png"),
+    Region("Sulawesi Barat","https://dinkes.sulbarprov.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Coat_of_arms_of_West_Sulawesi.png/270px-Coat_of_arms_of_West_Sulawesi.png"),
+    Region("Sulawesi Selatan","https://covid19.sulselprov.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Coat_of_arms_of_South_Sulawesi.svg/270px-Coat_of_arms_of_South_Sulawesi.svg.png"),
+    Region("Sulawesi Tengah","https://dinkes.sultengprov.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Coat_of_arms_of_Central_Sulawesi.png/270px-Coat_of_arms_of_Central_Sulawesi.png"),
+    Region("Sulawesi Utara","https://corona.sulutprov.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Coat_of_arms_of_North_Sulawesi.svg/270px-Coat_of_arms_of_North_Sulawesi.svg.png"),
+    Region("Sumatera Barat","https://corona.sumbarprov.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Coat_of_arms_of_West_Sumatra.svg/270px-Coat_of_arms_of_West_Sumatra.svg.png"),
+    Region("Sumatera Selatan","http://corona.sumselprov.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Coat_of_arms_of_South_Sumatra.svg/270px-Coat_of_arms_of_South_Sumatra.svg.png"),
+    Region("Sumatera Utara","http://bpbd.sumutprov.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Coat_of_arms_of_North_Sumatra.svg/330px-Coat_of_arms_of_North_Sumatra.svg.png")
+)
+
+val cityData = listOf(
+    Region("Kota Palembang","https://hallo.palembang.go.id/Corona","https://upload.wikimedia.org/wikipedia/id/thumb/9/96/Logo_Palembang.jpg/178px-Logo_Palembang.jpg"),
+    Region("Kab. Musi Banyuasin","https://covid19.mubakab.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Lambang_Kabupaten_Musi_Banyuasin.png/186px-Lambang_Kabupaten_Musi_Banyuasin.png"),
+    Region("Kab. Belitung Timur","https://corona.belitungtimurkab.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Lambang_Kabupaten_Belitung_Timur.jpeg/182px-Lambang_Kabupaten_Belitung_Timur.jpeg"),
+    Region("Kota Bogor","http://www.covid19.kotabogor.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Bogor_coa.png/174px-Bogor_coa.png"),
+    Region("Kota Bekasi","http://corona.bekasikota.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Coat_of_arms_of_Bekasi.png/193px-Coat_of_arms_of_Bekasi.png"),
+    Region("Kota Depok","https://ccc-19.depok.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Lambang_Kota_Depok.png/190px-Lambang_Kota_Depok.png"),
+    Region("Kota Tangerang","https://maps.tangerangkota.go.id/corona/","https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Lambang_Kota_Tangerang.png/203px-Lambang_Kota_Tangerang.png"),
+    Region("Kota Bandung","https://covid19.bandung.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Bandung_coa.png/225px-Bandung_coa.png"),
+    Region("Kab. Cianjur","https://covid19.cianjurkab.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Lambang_Kabupaten_Cianjur.gif/208px-Lambang_Kabupaten_Cianjur.gif"),
+    Region("Kota Tegal","https://corona.tegalkota.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Shield_of_the_city_of_Tegal.svg/196px-Shield_of_the_city_of_Tegal.svg.png"),
+    Region("Kab. Wonosobo","https://corona.wonosobokab.go.id/","https://upload.wikimedia.org/wikipedia/id/thumb/d/d8/Kabupaten_Wonosobo.png/201px-Kabupaten_Wonosobo.png"),
+    Region("Kota Semarang","http://siagacorona.semarangkota.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Lambang_Kota_Semarang.png/173px-Lambang_Kota_Semarang.png"),
+    Region("Kab. Kudus","http://corona.kuduskab.go.id/","https://upload.wikimedia.org/wikipedia/id/thumb/7/7a/KABUPATEN_KUDUS.png/181px-KABUPATEN_KUDUS.png"),
+    Region("Kab. Demak","http://corona.demakkab.go.id/","https://upload.wikimedia.org/wikipedia/id/thumb/f/f2/Logo_Kabupaten_Demak.png/170px-Logo_Kabupaten_Demak.png"),
+    Region("Kab. Magelang","https://infocorona.magelangkab.go.id/","https://upload.wikimedia.org/wikipedia/id/thumb/8/81/Logo_Kabupaten_Magelang.png/170px-Logo_Kabupaten_Magelang.png"),
+    Region("Kota Magelang","https://covid19.magelangkota.go.id/","https://upload.wikimedia.org/wikipedia/id/thumb/f/f2/Logo_kota_magelang.png/177px-Logo_kota_magelang.png"),
+    Region("Kab. Bantul","https://covid19.magelangkota.go.id/","https://upload.wikimedia.org/wikipedia/id/thumb/a/a9/Bantul.png/155px-Bantul.png"),
+    Region("Kab. Tuban","https://tubankab.go.id/page/informasi-tentang-virus-corona-covid-19","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Lambang_Kabupaten_Tuban.webp/147px-Lambang_Kabupaten_Tuban.webp.png"),
+    Region("Kab. Kediri","http://covid19.kedirikab.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Lambang_Kabupaten_Kediri.gif/186px-Lambang_Kabupaten_Kediri.gif"),
+    Region("Kota Malang","https://coronadetektor.malangkota.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Seal_of_Malang_City_%28Logo_Kota_Malang%29.svg/217px-Seal_of_Malang_City_%28Logo_Kota_Malang%29.svg.png"),
+    Region("Kota Surabaya","https://lawancovid-19.surabaya.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Logo_surabaya.gif/180px-Logo_surabaya.gif"),
+    Region("Kab. Probolinggo","https://siagacovid19.probolinggokab.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Logo_Kabupaten_Probolinggo_-_Seal_of_Probolinggo_Regency.svg/173px-Logo_Kabupaten_Probolinggo_-_Seal_of_Probolinggo_Regency.svg.png"),
+    Region("Kota Probolinggo","https://portal.probolinggokota.go.id/index.php/tanggap-corona","https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Lambang_Kota_Probolinggo.png/178px-Lambang_Kota_Probolinggo.png"),
+    Region("Kab. Bondowoso","https://dinkes.bondowosokab.go.id/covid-19-center/","https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Lambang_Bondowoso.png/198px-Lambang_Bondowoso.png"),
+    Region("Kab. Banyuwangi","https://corona.banyuwangikab.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Lambang_Kabupaten_Banyuwangi.png/174px-Lambang_Kabupaten_Banyuwangi.png"),
+    Region("Kota Makasar","https://infocorona.makassar.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Coat_of_Arms_of_City_Makassar.png/179px-Coat_of_Arms_of_City_Makassar.png"),
+    Region("Kab. Bolaang Mongondow","https://covid19.bolmongkab.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Lambang_Kabupaten_Bolaang_Mongondow.png/188px-Lambang_Kabupaten_Bolaang_Mongondow.png"),
+    Region("Kab. Klaten","http://pantaucorona.klatenkab.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/LOGO_KABUPATEN_KLATEN.png/172px-LOGO_KABUPATEN_KLATEN.png"),
+    Region("Kab. Boyolali","http://covid19.boyolali.go.id/","https://upload.wikimedia.org/wikipedia/id/thumb/2/29/Kabupaten_Boyolali.png/155px-Kabupaten_Boyolali.png")
+)
