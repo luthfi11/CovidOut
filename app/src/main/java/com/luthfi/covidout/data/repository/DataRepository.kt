@@ -83,8 +83,8 @@ class DataRepository {
         return case
     }
 
-    fun getAllCountryCase(): MutableLiveData<List<CountryCase>>? {
-        val cases = MutableLiveData<List<CountryCase>>()
+    fun getAllCountryCase(): MutableLiveData<CountryCaseResponse>? {
+        val cases = MutableLiveData<CountryCaseResponse>()
         apiClient(urlCovid19).getAllCountryCase().enqueue(object : Callback<CountryCaseResponse> {
             override fun onFailure(call: Call<CountryCaseResponse>, t: Throwable) {
                 t.printStackTrace()
@@ -93,7 +93,7 @@ class DataRepository {
             override fun onResponse(call: Call<CountryCaseResponse>, response: Response<CountryCaseResponse>) {
                 Log.d("ResponseCovid19", response.body().toString())
                 response.body()?.let {
-                    cases.postValue(it.countries)
+                    cases.postValue(it)
                 }
             }
 

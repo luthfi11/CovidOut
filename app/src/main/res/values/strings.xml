@@ -30,4 +30,10 @@
     <string name="province_data">Data Provinsi</string>
     <string name="advance_data">Data Lanjut</string>
     <string name="city_data">Data Kabupaten dan Kota</string>
+    <string name="search">Cari Daerah</string>
+    <string name="international_data">Data Internasional</string>
+    <string name="province_not_found">Provinsi Tidak Ditemukan</string>
+    <string name="city_not_found">Kota Atau Kabupaten Tidak Ditemukan</string>
+    <string name="global_data">Data Kasus Covid-19 Global</string>
+    <string name="case_by_country">Data Kasus Berdasarkan Negara</string>
 </resources>

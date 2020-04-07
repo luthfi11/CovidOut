@@ -1,22 +1,18 @@
 package com.luthfi.covidout.ui.news
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.get
 import androidx.recyclerview.widget.LinearLayoutManager
-
 import com.luthfi.covidout.R
 import com.luthfi.covidout.data.model.News
+import com.luthfi.covidout.utils.gone
 import kotlinx.android.synthetic.main.fragment_news.*
 
-/**
- * A simple [Fragment] subclass.
- */
 class NewsFragment : Fragment() {
 
     private lateinit var viewModel: NewsViewModel
@@ -36,9 +32,8 @@ class NewsFragment : Fragment() {
     }
 
     private val newsObserver = Observer<List<News>> {
-        newsList.clear()
-        newsList.addAll(it)
-        adapter.notifyDataSetChanged()
+        adapter.setNewsData(it)
+        progressBar.gone()
     }
 
     private fun setUpRecycler() {

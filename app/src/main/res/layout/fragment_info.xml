@@ -3,12 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
         android:background="@color/colorPrimary">
 
         <com.google.android.material.textview.MaterialTextView
@@ -36,15 +39,25 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
                 android:textColor="@android:color/black"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:text="@string/province_data"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvProvinceNotFound"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone"
+                android:layout_gravity="center"
+                android:text="@string/province_not_found"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvProvince"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:itemCount="4"
-                tools:listitem="@layout/item_province" />
+                tools:listitem="@layout/item_region" />
 
             <View
                 android:layout_width="match_parent"
@@ -58,14 +71,24 @@
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="16dp"
                 android:textColor="@android:color/black"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:text="@string/city_data"/>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/tvCityNotFound"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="10dp"
+                android:visibility="gone"
+                android:layout_gravity="center"
+                android:text="@string/city_not_found"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvCity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:listitem="@layout/item_province" />
+                tools:listitem="@layout/item_region" />
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>

@@ -9,12 +9,17 @@ import com.bumptech.glide.Glide
 import com.luthfi.covidout.R
 import com.luthfi.covidout.data.model.Region
 import com.luthfi.covidout.ui.webview.WebViewActivity
-import kotlinx.android.synthetic.main.item_province.view.*
+import kotlinx.android.synthetic.main.item_region.view.*
 
-class RegionAdapter(private val regionList: List<Region>): RecyclerView.Adapter<RegionAdapter.ViewHolder>() {
+class RegionAdapter(private var regionList: List<Region>): RecyclerView.Adapter<RegionAdapter.ViewHolder>() {
+
+    fun setRegionData(data: List<Region>) {
+        regionList = data
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_province, parent, false))
+        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_region, parent, false))
     }
 
     override fun getItemCount(): Int {

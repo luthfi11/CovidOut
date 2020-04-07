@@ -12,7 +12,12 @@ import com.luthfi.covidout.ui.webview.WebViewActivity
 import com.luthfi.covidout.utils.formatUTCDate
 import kotlinx.android.synthetic.main.item_news.view.*
 
-class NewsAdapter(private val newsList: List<News>): RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
+class NewsAdapter(private var newsList: List<News>): RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
+
+    fun setNewsData(data: List<News>) {
+        newsList = data
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_news, parent, false))

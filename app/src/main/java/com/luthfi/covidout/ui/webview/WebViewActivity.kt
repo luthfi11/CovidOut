@@ -1,8 +1,11 @@
 package com.luthfi.covidout.ui.webview
 
 import android.annotation.SuppressLint
+import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
+import android.webkit.WebSettings
 import androidx.appcompat.app.AppCompatActivity
 import com.luthfi.covidout.R
 import com.luthfi.covidout.utils.MyBrowser
@@ -30,6 +33,8 @@ class WebViewActivity : AppCompatActivity() {
     private fun setUpBrowser(url: String?) {
         webView.settings.javaScriptEnabled = true
         webView.webViewClient = MyBrowser(progressBar)
+        webView.setLayerType(View.LAYER_TYPE_HARDWARE, null)
+        webView.settings.cacheMode = WebSettings.LOAD_NO_CACHE
         webView.loadUrl(url)
     }
 

@@ -1,5 +1,6 @@
 package com.luthfi.covidout.utils
 
+import android.view.View
 import java.math.BigDecimal
 import java.math.RoundingMode
 import java.text.NumberFormat
@@ -27,4 +28,12 @@ fun roundNumber(number: Double): String {
 
 fun formatNumber(number: Int) : String {
     return NumberFormat.getNumberInstance(Locale.getDefault()).format(number).toString()
+}
+
+fun View.gone() {
+    visibility = View.GONE
+}
+
+fun View.visible() {
+    visibility = View.VISIBLE
 }

@@ -1,18 +1,29 @@
 package com.luthfi.covidout.ui.explore
 
-import android.text.Layout
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.luthfi.covidout.R
 import com.luthfi.covidout.data.model.CountryCase
-import kotlinx.android.synthetic.main.item_case_by_province.view.*
+import kotlinx.android.synthetic.main.item_country.view.*
+import java.util.*
 
-class CountryCaseAdapter(private val countryCaseList: List<CountryCase>): RecyclerView.Adapter<CountryCaseAdapter.ViewHolder>() {
+class CountryCaseAdapter(private var countryCaseList: List<CountryCase>) :
+    RecyclerView.Adapter<CountryCaseAdapter.ViewHolder>() {
+
+    fun setCaseData(data: List<CountryCase>) {
+        countryCaseList = data
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_case_by_province, parent, false))
+        return ViewHolder(
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_country, parent, false)
+        )
     }
 
     override fun getItemCount(): Int {
@@ -23,14 +34,24 @@ class CountryCaseAdapter(private val countryCaseList: List<CountryCase>): Recycl
         holder.bindItem(countryCaseList[position])
     }
 
-    inner class ViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
+        @SuppressLint("SetTextI18n")
         fun bindItem(countryCase: CountryCase) {
             with(itemView) {
-                tvProvince.text = countryCase.country
-                tvCaseTotal.text = countryCase.totalConfirmed.toString()
-                tvRecoverTotal.text = countryCase.totalRecovered.toString()
-                tvDeathTotal.text = countryCase.totalDeaths.toString()
+                tvCountry.text = countryCase.country
+                tvCaseTotal.text =
+                    "Total Kasus : ${countryCase.totalConfirmed} (+${countryCase.newConfirmed})"
+                tvRecoverTotal.text =
+                    "Sembuh : ${countryCase.totalRecovered} (+${countryCase.newRecovered})"
+                tvDeathTotal.text =
+                    "Meninggal : ${countryCase.totalDeaths} (+${countryCase.newDeaths})"
+
+                val flagsUrl =
+                    "https://raw.githubusercontent.com/hjnilsson/country-flags/master/png250px/${countryCase.countryCode.toLowerCase(
+                        Locale.ROOT
+                    )}.png"
+                Glide.with(context).load(flagsUrl).placeholder(R.color.colorMuted).into(imgCountry)
             }
         }
     }
