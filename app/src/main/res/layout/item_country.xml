@@ -30,22 +30,41 @@
             tools:src="@tools:sample/backgrounds/scenic"/>
 
         <TextView
-            android:id="@+id/tvCaseTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
+            android:text="@string/confirmed" />
+
+        <TextView
+            android:id="@+id/tvCaseTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:textColor="@android:color/black"
             tools:text="@tools:sample/us_zipcodes" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/recover" />
 
         <TextView
             android:id="@+id/tvRecoverTotal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
             tools:text="@tools:sample/us_zipcodes" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="@string/death" />
 
         <TextView
             android:id="@+id/tvDeathTotal"
             android:layout_width="wrap_content"
+            android:textColor="@android:color/black"
             android:layout_height="wrap_content"
             tools:text="@tools:sample/us_zipcodes" />
 
@@ -61,7 +80,7 @@
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
             android:textSize="16sp"
-            android:layout_marginTop="4dp"
+            android:padding="10dp"
             android:textAlignment="center"
             tools:text="@tools:sample/cities" />
 

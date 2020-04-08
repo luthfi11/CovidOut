@@ -14,7 +14,7 @@
     <string name="case_per_day">Jumlah Kasus per Hari</string>
     <string name="active_case">Kasus Aktif</string>
     <string name="average_case">Rata-Rata Kasus Baru Per Hari</string>
-    <string name="home_caption">Di wilayah kamu terdapat kasus Covid-19 sebagai berikut :</string>
+    <string name="home_caption">Di wilayah provinsi kamu terdapat kasus Covid-19 sebagai berikut :</string>
     <string name="cases">Kasus</string>
     <string name="learn_caption">Ayo kita bersama-sama lawan virus Corona!</string>
     <string name="know_more">Kenali lebih jauh apa itu virus Corona / Covid-19</string>
@@ -36,4 +36,5 @@
     <string name="city_not_found">Kota Atau Kabupaten Tidak Ditemukan</string>
     <string name="global_data">Data Kasus Covid-19 Global</string>
     <string name="case_by_country">Data Kasus Berdasarkan Negara</string>
+    <string name="percentage">Persentase</string>
 </resources>

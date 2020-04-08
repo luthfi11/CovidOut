@@ -40,8 +40,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="16dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:padding="16dp">
 
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="match_parent"
@@ -71,7 +71,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@android:color/black"
-                        android:textSize="30sp"
+                        android:textSize="28sp"
                         tools:text="1980" />
 
                     <com.google.android.material.textview.MaterialTextView
@@ -100,7 +100,7 @@
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dip"
-                    android:layout_height="100dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginEnd="4dp"
                     android:layout_weight="0.48"
                     app:cardBackgroundColor="@android:color/white"
@@ -113,7 +113,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/tvRecover"
@@ -130,20 +131,13 @@
                             android:text="@string/recover"
                             android:textSize="16sp" />
 
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/tvRecoverRate"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAlignment="center"
-                            tools:text="8%" />
-
                     </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dip"
-                    android:layout_height="100dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
                     android:layout_weight="0.48"
                     app:cardBackgroundColor="@android:color/white"
@@ -156,14 +150,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
                         <com.google.android.material.textview.MaterialTextView
                             android:id="@+id/tvDeath"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@android:color/black"
-                            android:textSize="30sp"
+                            android:textSize="28sp"
                             tools:text="210" />
 
                         <com.google.android.material.textview.MaterialTextView
@@ -172,13 +167,6 @@
                             android:layout_height="wrap_content"
                             android:text="@string/death"
                             android:textSize="16sp" />
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/tvDeathRate"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAlignment="center"
-                            tools:text="8%" />
 
                     </LinearLayout>
 
@@ -215,7 +203,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textColor="@android:color/black"
-                            android:textSize="30sp"
+                            android:textSize="28sp"
                             tools:text="190" />
 
                         <com.google.android.material.textview.MaterialTextView
@@ -223,13 +211,6 @@
                             android:layout_height="wrap_content"
                             android:text="@string/active_case"
                             android:textSize="16sp" />
-
-                        <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/tvActiveRate"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textAlignment="center"
-                            tools:text="8%" />
 
                     </LinearLayout>
 
@@ -251,21 +232,34 @@
                         android:layout_height="match_parent"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:padding="6dp">
+                        android:padding="12dp">
 
                         <com.google.android.material.textview.MaterialTextView
-                            android:id="@+id/tvAverageCase"
-                            android:layout_width="wrap_content"
+                            android:id="@+id/tvActiveRate"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:textAlignment="center"
                             android:textColor="@android:color/black"
-                            android:textSize="30sp"
-                            tools:text="210" />
+                            android:textSize="15sp"
+                            tools:text="8%" />
 
                         <com.google.android.material.textview.MaterialTextView
-                            android:layout_width="wrap_content"
+                            android:id="@+id/tvRecoverRate"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="@string/average_case"
-                            android:textAlignment="center" />
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="15sp"
+                            tools:text="8%" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/tvDeathRate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/black"
+                            android:textSize="15sp"
+                            tools:text="8%" />
 
                     </LinearLayout>
 
@@ -282,8 +276,8 @@
             <com.google.android.material.textview.MaterialTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
                 android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"
                 android:text="@string/case_by_country"
                 android:textColor="@android:color/black"
                 android:textSize="16sp" />

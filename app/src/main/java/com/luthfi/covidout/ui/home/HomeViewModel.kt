@@ -1,6 +1,7 @@
 package com.luthfi.covidout.ui.home
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.luthfi.covidout.data.model.CaseDevelopment
 import com.luthfi.covidout.data.model.IndonesiaCase
@@ -14,4 +15,11 @@ class HomeViewModel : ViewModel() {
     val indonesiaCase: LiveData<IndonesiaCase>? = repo.getIndonesiaCase()
     val indonesiaDevCase: LiveData<List<CaseDevelopment>>? = repo.getIndonesiaDevCase()
     val allProvinceCase: LiveData<List<ProvinceResponse>>? = repo.getAllProvinceCase()
+
+    private val _province = MutableLiveData<String>()
+    val province : LiveData<String>? = _province
+
+    fun setOwnProvinceCase(province: String?) {
+        _province.postValue(province)
+    }
 }

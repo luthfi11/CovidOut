@@ -45,31 +45,48 @@ class HomeFragment : Fragment() {
 
     private lateinit var viewModel: HomeViewModel
     private lateinit var adapter: ProvinceCaseAdapter
-    private val caseList = mutableListOf<ProvinceResponse>()
+    private val provinceCaseList = mutableListOf<ProvinceResponse>()
     private val caseDevList = arrayListOf<DataEntry>()
     private val casePerDayList = arrayListOf<DataEntry>()
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private var location: Location? = null
     private var locationRequest: LocationRequest? = null
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setUpRecycler()
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(context!!)
 
+        setUpRecycler()
+        onButtonClick()
+        onViewModelObserve()
+    }
+
+    private fun onViewModelObserve() {
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+        viewModel.province?.observe(viewLifecycleOwner, provinceObserver)
         viewModel.indonesiaCase?.observe(viewLifecycleOwner, indonesiaCaseObserver)
         viewModel.indonesiaDevCase?.observe(viewLifecycleOwner, indonesiaDevObserver)
         viewModel.allProvinceCase?.observe(viewLifecycleOwner, provinceCaseObserver)
+    }
 
-        btnRefreshLocation.setOnClickListener { getLastLocation() }
-        btnAction.setOnClickListener {
-            val intent = Intent(context, LearnActivity::class.java)
-            startActivity(intent)
+    private val provinceObserver = Observer<String?> { provinceName ->
+        if (provinceCaseList.isNotEmpty()) {
+            val selectedProvince =
+                provinceCaseList.filter { it.attributes.province == provinceName }
+            selectedProvince[0].attributes.let {
+                tvRecoverProvince.text = it.recoverCase.toString()
+                tvCaseProvince.text = it.positiveCase.toString()
+                tvDeathProvince.text = it.deathCase.toString()
+            }
         }
     }
 
@@ -96,11 +113,21 @@ class HomeFragment : Fragment() {
     private val indonesiaDevObserver = Observer<List<CaseDevelopment>> { countryCase ->
         var caseAverage = 0
         for (i in countryCase.indices) {
-            val caseCount: Int = if (i != 0) countryCase[i].cases - countryCase[i-1].cases
+            val caseCount: Int = if (i != 0) countryCase[i].cases - countryCase[i - 1].cases
             else countryCase[i].cases
 
-            caseDevList.add(ValueDataEntry(formatUTCDate(countryCase[i].date, "d-MMM"), countryCase[i].cases))
-            casePerDayList.add(ValueDataEntry(formatUTCDate(countryCase[i].date, "d-MMM"), caseCount))
+            caseDevList.add(
+                ValueDataEntry(
+                    formatUTCDate(countryCase[i].date, "d-MMM"),
+                    countryCase[i].cases
+                )
+            )
+            casePerDayList.add(
+                ValueDataEntry(
+                    formatUTCDate(countryCase[i].date, "d-MMM"),
+                    caseCount
+                )
+            )
 
             caseAverage += caseCount
         }
@@ -112,9 +139,13 @@ class HomeFragment : Fragment() {
     }
 
     private val provinceCaseObserver = Observer<List<ProvinceResponse>> {
-        caseList.clear()
-        caseList.addAll(it)
-        adapter.notifyDataSetChanged()
+        it?.let {
+            provinceCaseList.clear()
+            provinceCaseList.addAll(it)
+            adapter.notifyDataSetChanged()
+
+            getLastLocation()
+        }
     }
 
     private fun setUpLineChart() {
@@ -160,12 +191,21 @@ class HomeFragment : Fragment() {
     }
 
     private fun setUpRecycler() {
-        adapter = ProvinceCaseAdapter(caseList)
-        rvCaseProvince.layoutManager = GridLayoutManager(context, 2, GridLayoutManager.HORIZONTAL, false)
+        adapter = ProvinceCaseAdapter(provinceCaseList)
+        rvCaseProvince.layoutManager =
+            GridLayoutManager(context, 2, GridLayoutManager.HORIZONTAL, false)
         rvCaseProvince.adapter = adapter
     }
 
-    // Location Request
+    private fun onButtonClick() {
+        btnRefreshLocation.setOnClickListener { getLastLocation() }
+        btnAction.setOnClickListener {
+            val intent = Intent(context, LearnActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+    // -------------------------------------------------- Location Service ---------------------------------------------------------
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
@@ -181,7 +221,8 @@ class HomeFragment : Fragment() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == 0) {
             if (grantResults.isNotEmpty()
-                && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                && grantResults[0] == PackageManager.PERMISSION_GRANTED
+            ) {
                 getLastLocation()
             } else {
                 Toast.makeText(context, "Lokasi Tidak Diizinkan", Toast.LENGTH_SHORT).show()
@@ -194,35 +235,30 @@ class HomeFragment : Fragment() {
             this.location = location
             try {
                 val geo = Geocoder(context, Locale.getDefault())
-                val addresses: List<Address> = geo.getFromLocation(location.latitude, location.longitude, 1)
-                if (addresses.isEmpty()) tvLocation.text = "Menunggu Loakasi Anda Diaktifkan"
-                else {
-                    if (addresses.isNotEmpty()) {
-                        tvLocation.text = addresses[0].featureName.toString() + ", " + addresses[0]
-                            .locality + ", " + addresses[0]
-                            .adminArea + ", " + addresses[0].countryName
-                    }
+                val addresses: List<Address> =
+                    geo.getFromLocation(location.latitude, location.longitude, 1)
+
+                if (addresses.isNotEmpty()) {
+                    viewModel.setOwnProvinceCase(addresses[0].adminArea)
+                    tvLocation.text = addresses[0].subAdminArea + ", " + addresses[0].adminArea
                 }
             } catch (e: Exception) {
-                Toast.makeText(context, "Terjadi Kesalahan, Mohon Coba Lagi.", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Terjadi Kesalahan, Mohon Coba Lagi.", Toast.LENGTH_SHORT)
+                    .show()
+                tvLocation.text = "Lokasi Gagal Dimuat"
             }
+        } else {
+            tvLocation.text = "Menunggu Data Lokasi"
         }
     }
 
-    private fun requestLocationPermission() {
-        requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 0)
-    }
-
     private fun getLastLocation() {
-        if (ActivityCompat.checkSelfPermission(context!!, Manifest.permission.ACCESS_FINE_LOCATION)
-            != PackageManager.PERMISSION_GRANTED) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(
-                    activity!!,
-                    Manifest.permission.ACCESS_FINE_LOCATION)) {
-                requestLocationPermission()
-            } else {
-                requestLocationPermission()
-            }
+        if (ActivityCompat.checkSelfPermission(
+                context!!,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), 0)
         } else {
             if (locationRequest == null) {
                 locationRequest = LocationRequest.create()?.apply {
@@ -263,7 +299,15 @@ class HomeFragment : Fragment() {
         task.addOnFailureListener { exception ->
             if (exception is ResolvableApiException) {
                 try {
-                    startIntentSenderForResult(exception.resolution.intentSender, 1, null, 0, 0, 0, null)
+                    startIntentSenderForResult(
+                        exception.resolution.intentSender,
+                        1,
+                        null,
+                        0,
+                        0,
+                        0,
+                        null
+                    )
                 } catch (sendEx: IntentSender.SendIntentException) {
                     sendEx.printStackTrace()
                 }

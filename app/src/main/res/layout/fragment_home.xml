@@ -51,7 +51,7 @@
                     android:drawableStart="@drawable/ic_place_black_24dp"
                     android:drawablePadding="4dp"
                     android:textColor="@android:color/white"
-                    android:textSize="18sp"
+                    android:textSize="16sp"
                     tools:text="@tools:sample/cities" />
 
                 <ImageButton
@@ -63,12 +63,20 @@
                     android:contentDescription="@string/app_name"
                     android:src="@drawable/ic_refresh_black_24dp" />
 
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.3dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_below="@id/tvLocation"
+                    android:background="@color/colorPrimaryDark" />
+
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tvHomeCaption"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/tvLocation"
-                    android:layout_marginTop="16dp"
+                    android:layout_below="@id/divider"
+                    android:layout_marginTop="12dp"
                     android:layout_marginBottom="16dp"
                     android:text="@string/home_caption"
                     android:textAlignment="center"
