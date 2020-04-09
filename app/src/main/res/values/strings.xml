@@ -18,13 +18,13 @@
     <string name="learn_caption">Ayo kita bersama-sama lawan virus Corona!</string>
     <string name="know_more">Kenali lebih jauh apa itu virus Corona / Covid-19</string>
     <string name="learn">Pelajari</string>
-    <string name="learn_caption_body">Kenali, cegah, dan hindari virus Corona agar kamu dan keluarga kamu tidak tertular virus Corona.\n Untuk memulainya, anda bisa cari tahu terlebih dahulu di aplikasi ini.</string>
+    <string name="learn_caption_body">Kenali, cegah, dan hindari virus Corona agar kamu dan keluarga kamu tidak tertular virus Corona.\n Anda juga bisa lakukan pemeriksaan mandiri di aplikasi ini.</string>
     <string name="info">Info</string>
     <string name="news">Berita</string>
 
     <string name="news_feed">Berita Terbaru</string>
     <string name="province_data">Data Provinsi</string>
-    <string name="advance_data">Data Lanjut</string>
+    <string name="advance_data">Informasi Lanjut</string>
     <string name="city_data">Data Kabupaten dan Kota</string>
     <string name="search">Cari Daerah</string>
     <string name="international_data">Data Internasional</string>
@@ -33,4 +33,7 @@
     <string name="global_data">Data Kasus Covid-19 Global</string>
     <string name="case_by_country">Data Kasus Berdasarkan Negara</string>
     <string name="zero">0</string>
+    <string name="personal_check">Saya Ingin Periksa Mandiri</string>
+    <string name="covidout">#CovidOut</string>
+    <string name="together">Bersama Lawan Corona</string>
 </resources>

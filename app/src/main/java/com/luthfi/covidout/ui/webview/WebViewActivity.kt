@@ -1,7 +1,6 @@
 package com.luthfi.covidout.ui.webview
 
 import android.annotation.SuppressLint
-import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View

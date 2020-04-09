@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
+import coil.api.load
 import com.luthfi.covidout.R
 import com.luthfi.covidout.data.model.CountryCase
 import com.luthfi.covidout.utils.formatNumber
@@ -53,7 +53,7 @@ class CountryCaseAdapter(private var countryCaseList: List<CountryCase>) :
                         Locale.ROOT
                     )}.png"
 
-                Glide.with(context).load(flagsUrl).placeholder(R.color.colorMuted).into(imgCountry)
+                imgCountry.load(flagsUrl)
             }
         }
     }

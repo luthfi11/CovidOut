@@ -1,6 +1,7 @@
 package com.luthfi.covidout.ui.article
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +18,12 @@ class ImageAdapter(private val context: Context, private val imageList: List<Str
         val imageView: ImageView = view.findViewById(R.id.imgArticle)
 
         Glide.with(context).load(getImage(position)).into(imageView)
+        imageView.setOnClickListener {
+            val intent = Intent(context, ImageDetailActivity::class.java).apply {
+                putExtra("image", getImage(position))
+            }
+            context.startActivity(intent)
+        }
         container.addView(view)
         return view
     }

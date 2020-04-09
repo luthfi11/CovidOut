@@ -19,7 +19,11 @@ class NewsFragment : Fragment() {
     private lateinit var adapter: NewsAdapter
     private val newsList = mutableListOf<News>()
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         return inflater.inflate(R.layout.fragment_news, container, false)
     }
 
@@ -32,7 +36,16 @@ class NewsFragment : Fragment() {
     }
 
     private val newsObserver = Observer<List<News>> {
-        adapter.setNewsData(it)
+        val filteredNews = it.filter { news ->
+            news.title!!.contains(
+                "corona",
+                true
+            ) or news.title!!.contains("covid-19", true) or news.description!!.contains(
+                "corona",
+                true
+            ) or news.description!!.contains("covid-19", true)
+        }
+        adapter.setNewsData(filteredNews)
         progressBar.gone()
     }
 

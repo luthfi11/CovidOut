@@ -43,42 +43,44 @@ class DataRepository {
 
     fun getIndonesiaDevCase(): MutableLiveData<List<CaseDevelopment>>? {
         val case = MutableLiveData<List<CaseDevelopment>>()
-        apiClient(urlCovid19).getIndonesiaDevCase().enqueue(object : Callback<List<CaseDevelopment>> {
-            override fun onFailure(call: Call<List<CaseDevelopment>>, t: Throwable) {
-                t.printStackTrace()
-            }
-
-            override fun onResponse(
-                call: Call<List<CaseDevelopment>>,
-                response: Response<List<CaseDevelopment>>
-            ) {
-                response.body()?.let {
-                    Log.d("ResponseCovid19", response.body().toString())
-                    val filteredCase = it.filter { data -> data.cases != 0 }
-                    case.postValue(filteredCase)
+        apiClient(urlCovid19).getIndonesiaDevCase()
+            .enqueue(object : Callback<List<CaseDevelopment>> {
+                override fun onFailure(call: Call<List<CaseDevelopment>>, t: Throwable) {
+                    t.printStackTrace()
                 }
-            }
 
-        })
+                override fun onResponse(
+                    call: Call<List<CaseDevelopment>>,
+                    response: Response<List<CaseDevelopment>>
+                ) {
+                    response.body()?.let {
+                        Log.d("ResponseCovid19", response.body().toString())
+                        val filteredCase = it.filter { data -> data.cases != 0 }
+                        case.postValue(filteredCase)
+                    }
+                }
+
+            })
 
         return case
     }
 
     fun getAllProvinceCase(): MutableLiveData<List<ProvinceResponse>>? {
         val case = MutableLiveData<List<ProvinceResponse>>()
-        apiClient(urlKawalCorona).getAllProvinceCase().enqueue(object : Callback<List<ProvinceResponse>> {
-            override fun onFailure(call: Call<List<ProvinceResponse>>, t: Throwable) {
-                t.printStackTrace()
-            }
+        apiClient(urlKawalCorona).getAllProvinceCase()
+            .enqueue(object : Callback<List<ProvinceResponse>> {
+                override fun onFailure(call: Call<List<ProvinceResponse>>, t: Throwable) {
+                    t.printStackTrace()
+                }
 
-            override fun onResponse(
-                call: Call<List<ProvinceResponse>>,
-                response: Response<List<ProvinceResponse>>
-            ) {
-                Log.d("ResponseKawalCorona", response.body().toString())
-                case.postValue(response.body())
-            }
-        })
+                override fun onResponse(
+                    call: Call<List<ProvinceResponse>>,
+                    response: Response<List<ProvinceResponse>>
+                ) {
+                    Log.d("ResponseKawalCorona", response.body().toString())
+                    case.postValue(response.body())
+                }
+            })
 
         return case
     }
@@ -90,7 +92,10 @@ class DataRepository {
                 t.printStackTrace()
             }
 
-            override fun onResponse(call: Call<CountryCaseResponse>, response: Response<CountryCaseResponse>) {
+            override fun onResponse(
+                call: Call<CountryCaseResponse>,
+                response: Response<CountryCaseResponse>
+            ) {
                 Log.d("ResponseCovid19", response.body().toString())
                 response.body()?.let {
                     cases.postValue(it)
@@ -111,7 +116,9 @@ class DataRepository {
 
             override fun onResponse(call: Call<NewsResponse>, response: Response<NewsResponse>) {
                 Log.d("ResponseNewsAPI", response.body().toString())
-                news.postValue(response.body()?.articles)
+                response.body()?.articles?.let {
+                    news.postValue(it.filter { news-> news.description != null })
+                }
             }
         })
 

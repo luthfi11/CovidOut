@@ -166,6 +166,7 @@ class HomeFragment : Fragment() {
         val chart = cartesian.line(caseMapping)
 
         chart.name("Kasus Positif")
+        chart.color("#2979FF")
         chartDevelopment.setChart(cartesian)
     }
 
@@ -188,6 +189,7 @@ class HomeFragment : Fragment() {
         val chart = cartesian.column(caseMapping)
 
         chart.name("Kasus Positif")
+        chart.color("#2979FF")
         chartCasePerDay.setChart(cartesian)
     }
 
