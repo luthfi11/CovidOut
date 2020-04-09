@@ -92,7 +92,7 @@
                     android:textColor="@android:color/white"
                     android:textAlignment="center"
                     android:textSize="34sp"
-                    tools:text="1980" />
+                    android:text="@string/zero" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tvRecoverProvince"
@@ -104,7 +104,7 @@
                     android:textAlignment="center"
                     android:textColor="@android:color/white"
                     android:textSize="30sp"
-                    tools:text="190" />
+                    android:text="@string/zero" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:id="@+id/tvDeathProvince"
@@ -116,7 +116,7 @@
                     android:textAlignment="center"
                     android:textColor="@android:color/white"
                     android:textSize="30sp"
-                    tools:text="180" />
+                    android:text="@string/zero" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"

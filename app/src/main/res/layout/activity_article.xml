@@ -1,25 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/white"
-        android:orientation="vertical"
         tools:context=".ui.article.ArticleActivity">
-
-        <ImageView
-            android:id="@+id/imgBanner"
-            android:layout_width="match_parent"
-            android:layout_height="120dp"
-            android:contentDescription="@string/app_name"
-            android:scaleType="centerCrop"
-            tools:src="@tools:sample/backgrounds/scenic" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tvTitle"
@@ -32,15 +22,47 @@
             tools:maxLines="2"
             tools:text="@tools:sample/lorem/random" />
 
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvViewPager"
+            android:layout_width="match_parent"
+            android:layout_below="@id/tvTitle"
+            android:padding="4dp"
+            android:layout_margin="8dp"
+            app:cardBackgroundColor="@color/colorSemiMuted"
+            android:layout_height="410dp" >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <me.relex.circleindicator.CircleIndicator
+                    android:id="@+id/circle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/viewPager"
+                    android:background="@color/colorTransparent"
+                    android:layout_centerHorizontal="true"
+                    android:padding="10dp" />
+
+            </RelativeLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
         <org.sufficientlysecure.htmltextview.HtmlTextView
             android:id="@+id/tvContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:layout_below="@id/cvViewPager"
             android:padding="16dp"
             android:textSize="16sp"
-            android:lineSpacingExtra="4dp"
-            tools:text="@tools:sample/lorem/random"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            tools:text="@tools:sample/lorem/random[0]" />
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </ScrollView>

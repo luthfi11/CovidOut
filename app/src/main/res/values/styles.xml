@@ -30,9 +30,4 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.MaterialComponents.Light" />
 
-    <style name="AppTheme.SearchView" parent="Widget.AppCompat.SearchView">
-        <item name="searchHintIcon">@null</item>
-        <item name="searchIcon">@null</item>
-        <item name="queryBackground">@android:color/transparent</item>
-    </style>
 </resources>

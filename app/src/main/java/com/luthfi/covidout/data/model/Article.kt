@@ -8,5 +8,6 @@ data class Article(
     var id: Int,
     var title: String,
     var banner: Int,
-    var content: String
+    var content: String,
+    var image: List<String>?
 ): Parcelable

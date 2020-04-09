@@ -39,7 +39,6 @@ import com.luthfi.covidout.utils.roundNumber
 import kotlinx.android.synthetic.main.fragment_home.*
 import java.util.*
 
-
 @SuppressLint("SetTextI18n")
 class HomeFragment : Fragment() {
 
@@ -68,6 +67,8 @@ class HomeFragment : Fragment() {
         setUpRecycler()
         onButtonClick()
         onViewModelObserve()
+
+        if (location == null) tvLocation.text = "Menunggu Data Lokasi"
     }
 
     private fun onViewModelObserve() {
@@ -247,8 +248,6 @@ class HomeFragment : Fragment() {
                     .show()
                 tvLocation.text = "Lokasi Gagal Dimuat"
             }
-        } else {
-            tvLocation.text = "Menunggu Data Lokasi"
         }
     }
 

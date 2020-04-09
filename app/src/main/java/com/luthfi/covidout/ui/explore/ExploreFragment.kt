@@ -4,20 +4,23 @@ import android.annotation.SuppressLint
 import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.*
 import android.widget.SearchView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.luthfi.covidout.R
 import com.luthfi.covidout.data.model.CountryCase
 import com.luthfi.covidout.data.model.CountryCaseResponse
 import com.luthfi.covidout.data.model.GlobalCase
 import com.luthfi.covidout.utils.*
 import kotlinx.android.synthetic.main.fragment_explore.*
+
 
 class ExploreFragment : Fragment() {
 
@@ -58,8 +61,7 @@ class ExploreFragment : Fragment() {
         progressBar.gone()
         nestedLayout.visible()
 
-        tvLastUpdate.text =
-            "Update Terakhir : " + formatUTCDate(it.countries[0].date, "dd MMMM yyyy HH:mm")
+        tvLastUpdate.text = "Update Terakhir : " + formatUTCDate(it.countries[0].date, "dd MMMM yyyy HH:mm")
     }
 
     private fun setUpRecycler() {
