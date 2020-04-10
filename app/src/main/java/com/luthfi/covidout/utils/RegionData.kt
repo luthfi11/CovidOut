@@ -26,7 +26,18 @@ val provinceData = listOf(
     Region("Sulawesi Utara","https://corona.sulutprov.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Coat_of_arms_of_North_Sulawesi.svg/270px-Coat_of_arms_of_North_Sulawesi.svg.png"),
     Region("Sumatera Barat","https://corona.sumbarprov.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Coat_of_arms_of_West_Sumatra.svg/270px-Coat_of_arms_of_West_Sumatra.svg.png"),
     Region("Sumatera Selatan","http://corona.sumselprov.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Coat_of_arms_of_South_Sumatra.svg/270px-Coat_of_arms_of_South_Sumatra.svg.png"),
-    Region("Sumatera Utara","http://bpbd.sumutprov.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Coat_of_arms_of_North_Sumatra.svg/330px-Coat_of_arms_of_North_Sumatra.svg.png")
+    Region("Sumatera Utara","http://bpbd.sumutprov.go.id/","https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Coat_of_arms_of_North_Sumatra.svg/330px-Coat_of_arms_of_North_Sumatra.svg.png"),
+
+    Region("Papua","","https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Coat_of_Arms_of_Papua.png/807px-Coat_of_Arms_of_Papua.png"),
+    Region("Kalimantan Tengah","","https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Coat_of_arms_of_Central_Kalimantan.png/270px-Coat_of_arms_of_Central_Kalimantan.png"),
+    Region("Kalimantan Utara","","https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Emblem_of_North_Kalimantan.png/338px-Emblem_of_North_Kalimantan.png"),
+    Region("Sulawesi Tenggara","","https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Coat_of_arms_of_Southeast_Sulawesi.svg/270px-Coat_of_arms_of_Southeast_Sulawesi.svg.png"),
+    Region("Kepulauan Bangka Belitung","","https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Coat_of_arms_of_Bangka_Belitung_Islands.svg/270px-Coat_of_arms_of_Bangka_Belitung_Islands.svg.png"),
+    Region("Bengkulu","","https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Coat_of_arms_of_Bengkulu.png/270px-Coat_of_arms_of_Bengkulu.png"),
+    Region("Papua Barat","","https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Coat_of_arms_of_West_Papua.svg/270px-Coat_of_arms_of_West_Papua.svg.png"),
+    Region("Maluku Utara","","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Coat_of_arms_of_North_Maluku.png/270px-Coat_of_arms_of_North_Maluku.png"),
+    Region("Nusa Tenggara Timur","","https://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Coat_of_arms_of_East_Nusa_Tenggara.svg/270px-Coat_of_arms_of_East_Nusa_Tenggara.svg.png"),
+    Region("Gorontalo","","https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Lambang_propinsi_gorontalo.jpg/270px-Lambang_propinsi_gorontalo.jpg")
 )
 
 val cityData = listOf(

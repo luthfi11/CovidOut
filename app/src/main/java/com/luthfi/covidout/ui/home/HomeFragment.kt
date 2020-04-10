@@ -195,8 +195,7 @@ class HomeFragment : Fragment() {
 
     private fun setUpRecycler() {
         adapter = ProvinceCaseAdapter(provinceCaseList)
-        rvCaseProvince.layoutManager =
-            GridLayoutManager(context, 2, GridLayoutManager.HORIZONTAL, false)
+        rvCaseProvince.layoutManager = GridLayoutManager(context, 2)
         rvCaseProvince.adapter = adapter
     }
 

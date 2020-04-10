@@ -18,7 +18,7 @@ import com.luthfi.covidout.data.model.GlobalCase
 import com.luthfi.covidout.utils.*
 import kotlinx.android.synthetic.main.fragment_explore.*
 
-
+@SuppressLint("SetTextI18n")
 class ExploreFragment : Fragment() {
 
     private lateinit var viewModel: ExploreViewModel
@@ -47,10 +47,12 @@ class ExploreFragment : Fragment() {
         viewModel.allCountryCase?.observe(viewLifecycleOwner, countryCaseObserver)
     }
 
-    @SuppressLint("SetTextI18n")
     private val countryCaseObserver = Observer<CountryCaseResponse> {
         caseList.clear()
-        caseList.addAll(it.countries.sortedByDescending { case -> case.totalConfirmed })
+        caseList.addAll(it.countries
+            .sortedByDescending { case -> case.totalConfirmed }
+            .filter { case -> case.totalConfirmed > 0 }
+        )
 
         adapter.setCaseData(caseList)
         showGlobalData(it.global)
@@ -58,7 +60,8 @@ class ExploreFragment : Fragment() {
         progressBar.gone()
         nestedLayout.visible()
 
-        tvLastUpdate.text = "Update Terakhir : " + formatUTCDate(it.countries[0].date, "dd MMMM yyyy HH:mm")
+        tvLastUpdate.text =
+            "Update Terakhir : " + formatUTCDate(it.countries[0].date, "dd MMMM yyyy HH:mm")
     }
 
     private fun setUpRecycler() {
@@ -67,7 +70,6 @@ class ExploreFragment : Fragment() {
         rvCountryCase.adapter = adapter
     }
 
-    @SuppressLint("SetTextI18n")
     private fun showGlobalData(globalCase: GlobalCase) {
         with(globalCase) {
             val activeCase =

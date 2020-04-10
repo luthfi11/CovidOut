@@ -36,4 +36,9 @@
     <string name="personal_check">Saya Ingin Periksa Mandiri</string>
     <string name="covidout">#CovidOut</string>
     <string name="together">Bersama Lawan Corona</string>
+    <string name="case_province">Kasus Provinsi</string>
+    <string name="close">Tutup</string>
+    <string name="website">Website Informasi Covid-19</string>
+    <string name="not_available">Belum Tersedia</string>
+    <string name="maps_google">Peta Sebaran by Google</string>
 </resources>

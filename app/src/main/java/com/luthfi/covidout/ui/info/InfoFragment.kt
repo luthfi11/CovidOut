@@ -34,7 +34,7 @@ class InfoFragment : Fragment() {
     }
 
     private fun setUpRecycler() {
-        provinceAdapter = RegionAdapter(provinceData)
+        provinceAdapter = RegionAdapter(provinceData.filter { it.webUrl != "" })
         rvProvince.layoutManager = LinearLayoutManager(context)
         rvProvince.adapter = provinceAdapter
 
@@ -45,7 +45,7 @@ class InfoFragment : Fragment() {
 
     private val queryTextListener = object : SearchView.OnQueryTextListener {
         override fun onQueryTextChange(newText: String): Boolean {
-            val provinceFiltered = provinceData.filter { it.name.contains(newText, true) }
+            val provinceFiltered = provinceData.filter { it.name.contains(newText, true) && it.webUrl != ""}
             val cityFiltered = cityData.filter { it.name.contains(newText, true) }
 
             provinceAdapter.setRegionData(provinceFiltered)
