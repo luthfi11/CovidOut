@@ -4,8 +4,8 @@ import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
 import android.view.*
-import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.luthfi.covidout.R
@@ -71,7 +71,7 @@ class InfoFragment : Fragment() {
         val searchManager = activity?.getSystemService(Context.SEARCH_SERVICE) as SearchManager
 
         searchView = searchItem.actionView as SearchView
-        searchView.isIconifiedByDefault = false
+        searchView.isIconified = false
         searchView.setSearchableInfo(searchManager.getSearchableInfo(activity?.componentName))
         searchView.setOnQueryTextListener(queryTextListener)
         searchView.setOnQueryTextFocusChangeListener { _, hasFocus ->

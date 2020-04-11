@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide
 import com.luthfi.covidout.R
 import com.luthfi.covidout.data.model.ProvinceResponse
 import com.luthfi.covidout.ui.webview.WebViewActivity
+import com.luthfi.covidout.utils.formatNumber
 import com.luthfi.covidout.utils.provinceData
 import com.luthfi.covidout.utils.roundNumber
 import kotlinx.android.synthetic.main.item_case_by_province.view.*
@@ -101,10 +102,10 @@ class ProvinceCaseAdapter(private val responseList: List<ProvinceResponse>) :
                 }
 
                 tvProvinceName.text = province.attributes.province
-                tvProvinceCaseTotal.text = province.attributes.positiveCase.toString()
+                tvProvinceCaseTotal.text = formatNumber(province.attributes.positiveCase)
                 tvProvinceRecoverTotal.text = "${province.attributes.recoverCase} ($recoverRate%)"
                 tvProvinceDeathTotal.text = "${province.attributes.deathCase} ($deathRate%)"
-                tvProvinceActiveCase.text = "$activeCase ($activeRate%)"
+                tvProvinceActiveCase.text = "${formatNumber(activeCase)} ($activeRate%)"
 
                 tvClose.setOnClickListener { dialog.dismiss() }
 

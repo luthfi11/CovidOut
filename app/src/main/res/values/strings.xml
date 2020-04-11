@@ -41,4 +41,8 @@
     <string name="website">Website Informasi Covid-19</string>
     <string name="not_available">Belum Tersedia</string>
     <string name="maps_google">Peta Sebaran by Google</string>
+    <string name="case_country">Informasi Kasus Covid-19 Negara</string>
+    <string name="recover_rate">Persentase Sembuh</string>
+    <string name="death_rate">Persentase Kematian</string>
+    <string name="case_dev">Perkembangan Kasus</string>
 </resources>

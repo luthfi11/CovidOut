@@ -107,6 +107,29 @@ class DataRepository {
         return cases
     }
 
+    fun getCountryDevCase(slug: String): MutableLiveData<List<CaseDevelopment>>? {
+        val case = MutableLiveData<List<CaseDevelopment>>()
+        apiClient(urlCovid19).getCountryDevCase(slug)
+            .enqueue(object : Callback<List<CaseDevelopment>> {
+                override fun onFailure(call: Call<List<CaseDevelopment>>, t: Throwable) {
+                    t.printStackTrace()
+                }
+
+                override fun onResponse(
+                    call: Call<List<CaseDevelopment>>,
+                    response: Response<List<CaseDevelopment>>
+                ) {
+                    response.body()?.let {
+                        Log.d("ResponseCovid19", response.body().toString())
+                        val filteredCase = it.filter { data -> data.cases != 0 }
+                        case.postValue(filteredCase)
+                    }
+                }
+            })
+
+        return case
+    }
+
     fun getNews(): MutableLiveData<List<News>>? {
         val news = MutableLiveData<List<News>>()
         apiClient(urlNews).getNews().enqueue(object : Callback<NewsResponse> {

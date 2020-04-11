@@ -5,15 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import coil.api.load
 import com.luthfi.covidout.R
 import com.luthfi.covidout.data.model.CountryCase
 import com.luthfi.covidout.utils.formatNumber
 import kotlinx.android.synthetic.main.item_country.view.*
-import java.util.*
 
 class CountryCaseAdapter(private var countryCaseList: List<CountryCase>) :
     RecyclerView.Adapter<CountryCaseAdapter.ViewHolder>() {
+
+    private var onCountryCallback: OnCountryCallback? = null
+
+    fun setOnCountryClick(onCountryCallback: OnCountryCallback) {
+        this.onCountryCallback = onCountryCallback
+    }
 
     fun setCaseData(data: List<CountryCase>) {
         countryCaseList = data
@@ -48,13 +52,14 @@ class CountryCaseAdapter(private var countryCaseList: List<CountryCase>) :
                 tvDeathTotal.text =
                     "${formatNumber(countryCase.totalDeaths)} (+${formatNumber(countryCase.newDeaths)})"
 
-                val flagsUrl =
-                    "https://raw.githubusercontent.com/hjnilsson/country-flags/master/png250px/${countryCase.countryCode.toLowerCase(
-                        Locale.ROOT
-                    )}.png"
-
-                imgCountry.load(flagsUrl)
+                setOnClickListener {
+                    onCountryCallback?.onCountrySelected(countryCase)
+                }
             }
         }
+    }
+
+    interface OnCountryCallback {
+        fun onCountrySelected(countryCase: CountryCase)
     }
 }
