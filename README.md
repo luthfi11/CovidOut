@@ -1,2 +1,2 @@
 # CovidOut
-Android application to monitor the current condition of the Pandemic Covid-19 in Indonesia and the world.
+Android application to monitor the current conditions of the Covid-19 Pandemic in Indonesia and the world. The features available in this application are, information on the number of Covid 19 cases in the world and Indonesia, graphical data on the development of covid in Indonesia and the world, a map of the distribution of covid, the latest news about Covid, and Covid information for each region in Indonesia.
